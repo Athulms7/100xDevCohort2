@@ -1,0 +1,36 @@
+<html>
+<script>//to write js inside
+    let timeout;
+    function waittocompletetext(){
+        clearTimeout(timeout);
+        timeout=setTimeout(sum,1000);
+    }
+
+    async function sum(){
+        // alert("hi");
+        const a=document.getElementById("firstnumber").value;
+        const b=document.getElementById("secondnumber").value;     
+        // console.log(element);
+        // element.innerHTML= parseInt(a) + parseInt(b);
+        
+        const response=await fetch("http://localhost:3000/?a="+a+"&b="+b)//using sum.js as backend to fetch data
+        const r=await response.text();
+        document.getElementById("finalsum").innerHTML=r;
+        
+        }
+        
+
+
+    
+</script>
+
+<body>
+    <input id="firstnumber"  type="text" placeholder="firstnumber"></input><br></br>
+
+    <input id="secondnumber" type="text" placeholder="secondnumber"></input><br></br>
+    
+    <button onclick="sum()">calculate sum</button>
+    <div id="finalsum"></div>
+</body>
+
+</html>

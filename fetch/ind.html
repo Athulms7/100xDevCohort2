@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>fetch
+  </title>
+
+</head>
+
+<body>
+  <script>
+    async function getdata() {
+      const resp = await fetch("https://fakerapi.it/api/v1/persons");
+      console.log(resp);
+      const data = await resp.json();
+      console.log(data);
+    }
+  </script>
+  <button onclick="getdata()">Get data</button>
+</body>
+
+</html>
+
+<!-- fetches data from api  -->

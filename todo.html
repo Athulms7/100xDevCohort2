@@ -1,0 +1,50 @@
+<html>
+    <script>
+        let globalId=1;
+        function markasdone(todo){
+            const parent =document.getElementById(todo);
+            parent.children[2].innerHTML="done";
+        }
+        function createchild(title,descp,id){
+           
+            const outerdiv= document.createElement("div");
+            const titilediv= document.createElement("div");
+            titilediv.innerHTML=title;
+            const descpdiv= document.createElement("div");
+            descpdiv.innerHTML=descp;
+            const button=document.createElement("button");
+            button.innerHTML="mark as done";
+            button.setAttribute("onclick",`markasdone(${id})`);
+            outerdiv.appendChild(titilediv);
+            outerdiv.appendChild(descpdiv);
+            outerdiv.appendChild(button);
+            outerdiv.setAttribute("id",id);
+            return outerdiv;
+           
+           
+            //  `  is used to write multilite to inner html original will the apended with new todo on click 
+        //     document.getElementById("container").innerHTML = original +`<div id="container">
+            
+        //         <div>${title}</div>
+        //         <div>${descp}</div>
+        //         <button>mark as done</button>
+            
+        // </div>`
+            
+
+        }
+        function addtodo(){
+            const title=document.getElementById("title").value;
+            const descp=document.getElementById("descp").value;
+            const parent=document.getElementById("container");
+            parent.appendChild(createchild(title,descp,globalId++));
+
+        }
+    </script>
+    <div>
+        <input id="title" type="text" placeholder="title"></input><br></br>
+        <input id="descp" type="text" placeholder="description"></input><br></br>
+        <button onclick="addtodo()">Add todo</button>
+        <div id="container">
+    </div>
+</html>
