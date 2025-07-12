@@ -21,10 +21,10 @@ email String @unique
 firstname String?
 lastname String?
 password String?
-todos Todo[]
+blogs Blogs[]
 }
 
-model Todo{
+model Blogs{
 id Int @id @default(autoincrement())
 title String
 descprition String
